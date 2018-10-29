@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Mail\SendVerificationToken;
 use App\User;
 use App\Events\UserRegistered;
 use Illuminate\Http\Request;
@@ -78,16 +79,11 @@ class RegisterController extends Controller
             'verify_token'  => str_random(60),
         ]);
         $verification_code = str_random(30); //Generate verification code
-        DB::table('user_verifications')->insert(['user_id' => $user->user_id, 'token' => $user->verify_token]);
+        DB::table('user_verifications')->insert(['user_id' => $user->id, 'token' => $user->verify_token]);
         $subject = "Please verify your email address.";
         $name= $user->first_name;
         $email = $user->email;
-        Mail::send('auth.email.verify', ['name' => $name, 'verification_code' => $user->verify_token],
-            function ($mail) use ($email,$name,$subject) {
-                $mail->from(getenv('FROM_EMAIL_ADDRESS'), getenv('APP_NAME'));
-                $mail->to($email,$name);
-                $mail->subject($subject);
-            });
+        Mail::to($email)->send(new SendVerificationToken(['data' => $name, 'token' => $user->verify_token]));
         return $user;
     }
 

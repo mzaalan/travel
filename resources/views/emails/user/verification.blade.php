@@ -1,9 +1,9 @@
 @component('mail::message')
-Hello {{$user->name}},
+Hello {{$data['data']}},
 # Welcome to Round Booking
 Please click button below to activate your account at RoundBooking
 
-@component('mail::button', ['url' => route('verify.token',$user->verify_token)])
+@component('mail::button', ['url' => url('verifyAccount'.'/'.$data['token'])])
 Click To Activate
 @endcomponent
 

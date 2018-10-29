@@ -11,14 +11,14 @@ class SendVerificationToken extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $user;
+    public $user=[];
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($user)
+    public function __construct($user=[])
     {
         $this->user = $user;
     }
@@ -30,6 +30,8 @@ class SendVerificationToken extends Mailable
      */
     public function build()
     {
-        return $this->subject('Registeration Verification')->markdown('emails.user.verification');
+        return $this->subject('Registeration Verification')
+            ->markdown('emails.user.verification')
+            ->with('data',$this->user);
     }
 }
