@@ -33,7 +33,7 @@
                                         </div>
                                         <div class="form-group text-center">
                                             <div class="mb-3">
-                                                <a class="link" href="javascript:void(0)">Forgot Password?</a>
+                                                <a class="link" href="{{url('/password/reset')}}">Forgot Password?</a>
                                             </div>
                                             <button type="submit" class="btn btn-secondary">Login</button>
                                         </div>
