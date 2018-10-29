@@ -34,7 +34,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/login';
 
     /**
      * Create a new controller instance.
@@ -78,7 +78,6 @@ class RegisterController extends Controller
             'password'      => Hash::make($data['password']),
             'verify_token'  => str_random(60),
         ]);
-        $verification_code = str_random(30); //Generate verification code
         DB::table('user_verifications')->insert(['user_id' => $user->id, 'token' => $user->verify_token]);
         $subject = "Please verify your email address.";
         $name= $user->first_name;
@@ -92,13 +91,17 @@ class RegisterController extends Controller
         $check = DB::table('user_verifications')->where('token', $verification_code)->first();
         if (!is_null($check)) {
             $user = User::find($check->user_id);
-            if ($user->is_verified == 1) {
+            if ($user->status == 1) {
                 session()->flash("success", "Your account is activated");
-                 return redirect('/home');
+                if(!auth()->user()){
+                  auth()->loginUsingID($user->id);
+                }
+                return redirect('/home');
             }
-            $user->update(['is_verified' => 1]);
+            $user->update(['status' => 1, 'verify_token' => null]);
             DB::table('user_verifications')->where('token', $verification_code)->delete();
             // return view here will define user confirmed email
+            auth()->loginUsingID($user->id);
             session()->flash("success", "Your account is activated successfully");
             return redirect('/home');
         }
@@ -113,7 +116,7 @@ class RegisterController extends Controller
         event(new Registered($user = $this->create($request->all())));
 
         // $this->guard()->login($user);
-
+        session()->flash("success", "You have received an activation email, please activate your account");
         return $this->registered($request, $user)
                         ?: redirect($this->redirectPath());
     }
