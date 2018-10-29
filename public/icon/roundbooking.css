@@ -1,0 +1,59 @@
+@font-face{
+	font-family:'rbico';
+	src:url('roundbooking.woff2') format('woff2'),
+		url('roundbooking.woff') format('woff');
+		font-weight:normal;
+		font-style:normal;
+}
+.ico{font:normal normal 24px/1 'rbico';display:inline-block;vertical-align:middle}
+.ico.ico-cart:before{content:'\0001'}
+.ico.ico-hotel:before{content:'\0002'}
+.ico.ico-plane:before{content:'\0003'}
+.ico.ico-taxi:before{content:'\0004'}
+.ico.ico-call:before{content:'\0026'}
+
+.ico.ico-menu:before{content:'\0027'}
+.ico.ico-user:before{content:'\0028'}
+.ico.ico-users:before{content:'\00f0'}
+.ico.ico-find:before{content:'\0012'}
+.ico.ico-server:before{content:'\0013'}
+.ico.ico-email:before{content:'\0014'}
+.ico.ico-plane-2:before{content:'\0015'}
+.ico.ico-task:before{content:'\0005'}
+.ico.ico-support:before{content:'\0010'}
+
+.ico.ico-star:before{content:'\0022'}
+.ico.ico-stars:before{content:'\000f'}
+.ico.ico-map-marker:before{content:'\0006'}
+.ico.ico-map-marker-alt:before{content:'\0025'}
+.ico.ico-arrow-left:before{content:'\0007'}
+.ico.ico-arrow-right:before{content:'\0008'}
+.ico.ico-globe:before{content:'\0023'}
+.ico.ico-email-2:before{content:'\0024'}
+.ico.ico-search:before{content:'\0011'}
+.ico.ico-chevron-left:before{content:'\0016'}
+.ico.ico-chevron-right:before{content:'\0017'}
+.ico.ico-chevron-up:before{content:'\0018'}
+.ico.ico-chevron-down:before{content:'\0019'}
+.ico.ico-facebook:before{content:'\001a'}
+.ico.ico-instagram:before{content:'\001b'}
+.ico.ico-youtube:before{content:'\001c'}
+.ico.ico-youtube-alt:before{content:'\001e'}
+.ico.ico-linkedin:before{content:'\001d'}
+.ico.ico-check-on:before{content:'\0029'}
+.ico.ico-check-off:before{content:'\002a'}
+.ico.ico-radio-on:before{content:'\002b'}
+.ico.ico-radio-off:before{content:'\002c'}
+
+.ico.ico-card:before{content:'\00ec'}
+.ico.ico-timer:before{content:'\00ed'}
+.ico.ico-sad:before{content:'\00ee'}
+.ico.ico-airline:before{content:'\00ef'}
+.ico.ico-plane-take-off:before{content:'\00f1'}
+.ico.ico-plane-land:before{content:'\00f2'}
+.ico.ico-car-seat:before{content:'\00f3'}
+.ico.ico-breifcase:before{content:'\00f4'}
+.ico.ico-lang:before{content:'\00f5'}
+.ico.ico-arrow-cross:before{content:'\00f6'}
+.ico.ico-like:before{content:'\00eb'}
+.ico.ico-like-outline:before{content:'\00ea'}

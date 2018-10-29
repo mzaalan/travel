@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 938.4 204.2" style="enable-background:new 0 0 938.4 204.2;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#F6A310;stroke-width:6;stroke-linecap:round;stroke-miterlimit:10;filter:url('#glow')}
+</style>
+<defs>
+	<filter id="glow" x="-5000%" y="-5000%" width="10000%" height="10000%">
+		<feFlood result="flood" flood-color="#faa401" flood-opacity="1"></feFlood>
+		<feComposite in="flood" result="mask" in2="SourceGraphic" operator="in"></feComposite>
+		<feMorphology in="mask" result="dilated" operator="dilate" radius="1"></feMorphology>
+		<feGaussianBlur in="dilated" result="blurred" stdDeviation="8"></feGaussianBlur>
+		<feMerge>
+			<feMergeNode in="blurred"></feMergeNode>
+			<feMergeNode in="SourceGraphic"></feMergeNode>
+		</feMerge>
+	</filter>
+</defs>
+<g>
+	<path class="st0" d="M45.7,45.6c0,0,47.7,7.4,132,71c66.3,50,115,46.6,150,31c25.6-11.5,15.9-11.3,99-53 c111.9-56.1,220.6-11.5,310,36c89.4,47.5,147.9,20.1,156,19"/>
+</g>
+</svg>
