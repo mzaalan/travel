@@ -15,6 +15,7 @@ Auth::routes();
 Route::get('verifyAccount/{token}','Auth\RegisterController@verifyUser')->name('verifyUser');
 Route::get('verify/token/{token}','TokenController@verify')->name('verify.token');
 Route::post('resend/token','TokenController@resend')->name('resend.token');
+Route::post('contact/admin','ContactAdminController@send')->name('admin.contact');
 
 
 Route::group(['middleware'=>'auth'], function(){
@@ -29,7 +30,7 @@ Route::group(['middleware'=>'auth'], function(){
 		Route::get('/products','UserController@products')->name('user.products');
 		Route::get('/bookings','UserController@bookings')->name('user.bookings');
 	});
-	
+
 
 Route::get('/hotels',function(){
 	return view('hotel.index');

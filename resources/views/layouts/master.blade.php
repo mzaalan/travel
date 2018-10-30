@@ -35,7 +35,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="{{asset('owl/owl.carousel.min.js')}}"></script>
-    <script src="{{asset('js/script.js')}}"></script> 
+    <script src="{{asset('js/script.js')}}"></script>
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
@@ -47,6 +47,31 @@
     s1.setAttribute('crossorigin','*');
     s0.parentNode.insertBefore(s1,s0);
     })();
+    Tawk_API.onOfflineSubmit = function(data){
+      let questions = data.questions;
+      message = "";
+      for(i=0;i<questions.length;i++){
+        if(questions[i]["label"] && questions[i]["label"] == 'Message'){
+          message = questions[i]["answer"];
+          break;
+        }
+      }
+      fdata = {'text' : message, 'email' : data.email, 'name' : data.name}
+      console.log(fdata);
+      $.ajax({
+				url: '{{route("admin.contact")}}',
+				type: 'POST',
+				headers: {
+					'X-CSRF-TOKEN': '{{csrf_token()}}'
+				},
+				data: fdata
+			}).done( function(response) {
+
+
+			}).fail( function(response) {
+
+			});
+    };
     </script>
     <!--End of Tawk.to Script-->
     @stack('scripts')
